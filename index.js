@@ -2,15 +2,15 @@ const express = require('express')
 
 const app = express()
 
-function renderOne(jokes) {
+function render(jokes) {
   const page =  `<html>
     <head>
       <title>Dian Prasantio</title>
     </head>
 
     <body>
-      <h1>${jokes.q}</h1>
-      <p>${jokes.a}</p>
+      <h1>${jokes.q1}</h1>
+      <p>${jokes.a1}</p>
     </body>
     </html>`
   return page
@@ -77,7 +77,7 @@ app.get(
         q1:'Why do comedians love !false?',
         a1: 'It\s funny because it\s true.',
         j1: 'Parallel lines have so much in common.',
-        j2: 'Is\s a shame they\ll never meet',
+        j2: 'It\s a shame they\ll never meet',
         q2: 'Did you hear about the monkyes who shared an Amazon account?',
         a2: 'They were Prime mates',
         j3: 'A wife and husband was setting up their computer and the husband makes the password my dick,',
@@ -86,7 +86,7 @@ app.get(
       }  
 
       if(request.params.num === 'joke1') {
-        const pages = renderOne(jokes)
+        const pages = render(jokes)
         response.send(pages)
       }else if(request.params.num === 'joke2') {
         const pages = renderTwo(jokes)
