@@ -2,7 +2,7 @@ const express = require('express')
 
 const app = express()
 
-function render(jokes) {
+function renderOne(jokes) {
   const page =  `<html>
     <head>
       <title>Dian Prasantio</title>
@@ -22,7 +22,7 @@ app.get(
         q:'Why do comedians love !false?',
         a: 'It\s funny because it\s true.'
       }  
-      const pages = render(jokes)
+      const pages = renderOne(jokes)
         response.send(pages)
     }
 )
