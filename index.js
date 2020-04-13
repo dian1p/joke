@@ -20,7 +20,7 @@ app.get(
     }
 )
 
-const port = 3000
+const port = process.enc.PORT || 3000
 
 app.listen(
     port,
