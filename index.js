@@ -19,8 +19,8 @@ app.get(
     '/joke/:joke1',
     (request, response) => {
       const jokes = {
-        q = 'Why do comedians love !false?',
-        a = 'It\s funny because it\s true.'
+        q:'Why do comedians love !false?',
+        a: 'It\s funny because it\s true.'
       }  
       const pages = render(jokes)
         response.send(pages)
