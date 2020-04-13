@@ -2,21 +2,24 @@ const express = require('express')
 
 const app = express()
 
-const page =  `<html>
-<head>
-  <title>Dian Prasantio</title>
-</head>
+function render() {
+  const page =  `<html>
+    <head>
+      <title>Dian Prasantio</title>
+    </head>
 
-<body>
-  <h1>Why do comedians love !false?</h1>
-  <p>It's funny because it's true.</p>
-</body>
-</html>`
-
+    <body>
+      <h1>Why do comedians love !false?</h1>
+      <p>It's funny because it's true.</p>
+    </body>
+    </html>`
+  return page
+}
 app.get(
-    '/',
+    '/joke',
     (request, response) => {
-        response.send(page)
+      const pages = render()
+        response.send(pages)
     }
 )
 
