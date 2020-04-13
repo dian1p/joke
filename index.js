@@ -2,23 +2,25 @@ const express = require('express')
 
 const app = express()
 
-function render() {
+function render(q, a) {
   const page =  `<html>
     <head>
       <title>Dian Prasantio</title>
     </head>
 
     <body>
-      <h1>Why do comedians love !false?</h1>
-      <p>It's funny because it's true.</p>
+      <h1>${q}</h1>
+      <p>${a}</p>
     </body>
     </html>`
   return page
 }
 app.get(
-    '/joke',
+    '/joke/:joke1',
     (request, response) => {
-      const pages = render()
+      const q = 'Why do comedians love !false?'
+      const a = 'It\s funny because it\s true.'
+      const pages = render(q, a)
         response.send(pages)
     }
 )
