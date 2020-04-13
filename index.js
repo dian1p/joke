@@ -71,7 +71,7 @@ function renderFive(jokes) {
   return page
 }
 app.get(
-    '/joke/:?',
+    '/joke/:num',
     (request, response) => {
       const jokes = {
         q1:'Why do comedians love !false?',
@@ -84,8 +84,27 @@ app.get(
         j4: 'but the wife fell on the floor laughing because the computer said the password was too short.', 
         j5: 'The programmer got stuck in the shower because the instructions on the shampoo bottle said: Lather, Rinse, Repeat.'
       }  
-      const pages = renderFour(jokes)
+
+      if(request.params.num === 'joke1') {
+        const pages = renderOne(jokes)
         response.send(pages)
+      }else if(request.params.num === 'joke2') {
+        const pages = renderTwo(jokes)
+        response.send(pages)
+      }else if(request.params.num === 'joke3') {
+        const pages = renderThree(jokes)
+        response.send(pages)
+      }else if(request.params.num === 'joke4') {
+        const pages = renderFour(jokes)
+        response.send(pages)
+      }else if(request.params.num === 'joke5') {
+        const pages = renderFive(jokes)
+        response.send(pages)
+      }else {
+        return 'Error'
+      } 
+
+      
     }
 )
 
